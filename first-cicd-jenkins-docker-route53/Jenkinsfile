@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone repository') {
+            steps {
+                sh "git clone -b first-cicd https://github.com/psdike/cicd-projects.git"
+               
+            }
+        }
+
+        stage('Build Docker image') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                }
+            }
+            steps {
+                sh 'docker build -t psdike/php:${BUILD_NUMBER} .'
+            }
+        }
+
+        stage('Run Docker container') {
+            steps {
+                sh 'docker run -d -p 80:80 psdike/php:${BUILD_NUMBER}'
+            }
+        }
+
+        stage('Show success message') {
+            steps {
+                echo 'Docker container is running at http://prod.reliabledevops.in'
+            }
+        }
+    }
+}
