@@ -4,27 +4,25 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-               // sh "git clone -b first-cicd https://github.com/psdike/cicd-projects.git"
-                sh "echo already cloned"
+                sh "rm -rf *"
+               sh "git clone https://github.com/psdike/cicd-projects.git"
+               
+                //sh "cd cicd-projects"
                
             }
         }
 
         stage('Build Docker image') {
-            agent {
-                dockerfile {
-                    filename 'first-cicd-jenkins-docker-route53/Dockerfile'
-                }
-            }
+            
             steps {
                 sh 'ls -la'
-                sh 'docker build -t psdike/php:${BUILD_NUMBER} ./first-cicd-jenkins-docker-route53/.'
+                sh 'docker build -t psdike/php:v${BUILD_NUMBER} -f cicd-projects/first-cicd-jenkins-docker-route53/Dockerfile .'
             }
         }
 
         stage('Run Docker container') {
             steps {
-                sh 'docker run -d -p 80:80 psdike/php:${BUILD_NUMBER}'
+                sh 'docker run -d -p 80:80 psdike/php:v${BUILD_NUMBER}'
             }
         }
 
