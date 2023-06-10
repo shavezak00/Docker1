@@ -13,7 +13,7 @@ pipeline {
         stage('Build Docker image') {
             agent {
                 dockerfile {
-                    filename 'Dockerfile'
+                    filename 'first-cicd-jenkins-docker-route53/Dockerfile'
                 }
             }
             steps {
