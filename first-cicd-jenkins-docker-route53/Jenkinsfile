@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-                sh "git clone -b first-cicd https://github.com/psdike/cicd-projects.git"
+               // sh "git clone -b first-cicd https://github.com/psdike/cicd-projects.git"
+                sh "echo already cloned"
                
             }
         }
