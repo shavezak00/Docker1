@@ -32,7 +32,21 @@ environment {
         }
         stage('Run Docker container') {
             steps {
-                sh 'docker rm -f $(docker ps -a -q)'
+                sh '''
+containers=$(docker ps --format "{{.ID}}:{{.Ports}}" | grep ":80->" | awk -F ':' '{print $1}')
+if [ -z "$containers" ]; then
+    echo "No containers using port 80 found."
+else
+    echo "Containers using port 80:"
+    echo "$containers"
+
+    # Delete containers using port 80
+    for container in $containers; do
+        echo "Deleting container with ID: $container"
+        docker rm -f $container
+    done
+fi
+		'''
                 sh 'docker run -d -p 80:80 psdike/php:v${BUILD_NUMBER}'
             }
         }
