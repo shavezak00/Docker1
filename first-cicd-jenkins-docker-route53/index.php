@@ -1,166 +1,59 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
-	@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-* {
-	box-sizing: border-box;
-}
-
-body {
-	background-color: #abcdbb;
-
-	/* background-color: #28223F; */
-	font-family: Montserrat, sans-serif;
-	
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-
-	min-height: 100vh;
-	margin: 0;
-}
-
-h3 {
-	margin: 10px 0;
-}
-
-h6 {
-	margin: 5px 0;
-	text-transform: uppercase;
-}
-
-p {
-	font-size: 14px;
-	line-height: 21px;
-}
-
-.card-container {
-	background-color: #231E39;
-	border-radius: 5px;
-	box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
-	color: #B3B8CD;
-	padding-top: 30px;
-	position: relative;
-	width: 350px;
-	max-width: 100%;
-	text-align: center;
-}
-
-.card-container .pro {
-	color: #231E39;
-	background-color: #FEBB0B;
-	border-radius: 3px;
-	font-size: 14px;
-	font-weight: bold;
-	padding: 3px 7px;
-	position: absolute;
-	top: 30px;
-	left: 30px;
-}
-
-.card-container .round {
-	border: 1px solid #03BFCB;
-	border-radius: 50%;
-	padding: 7px;
-}
-
-button.primary {
-	background-color: #03BFCB;
-	border: 1px solid #03BFCB;
-	border-radius: 3px;
-	color: #231E39;
-	font-family: Montserrat, sans-serif;
-	font-weight: 500;
-	padding: 10px 25px;
-}
-
-button.primary.ghost {
-	background-color: transparent;
-	color: #02899C;
-}
-
-.skills {
-	background-color: #1F1A36;
-	text-align: left;
-	padding: 15px;
-	margin-top: 30px;
-}
-
-.skills ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.skills ul li {
-	border: 1px solid #2D2747;
-	border-radius: 2px;
-	display: inline-block;
-	font-size: 12px;
-	margin: 0 7px 7px 0;
-	padding: 7px;
-}
-
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-}
-</style>
-<title>Purushottam Dike SRE</title>
-<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purushottam Dike SRE</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
-
-<div class="card-container">
-	<!-- <span class="pro">PRO</span> -->
-	<img class="round" src="https://github.com/psdike/maven-web/blob/master/psd.jpg?raw=true" alt="user" />
-	<h3>Purushottam Dike</h3>
-	<h6>Reliable DevOps</h6>
-	<p>SRE @ N7<br/></p>
-	<div class="buttons">
-		<button class="primary" onclick='window.location="https://www.linkedin.com/in/purushottam-dike/"'>
-			LinkedIn
-		</button>
-		<button class="primary ghost" onclick='window.location="https://www.linkedin.com/in/purushottam-dike/"'>
-			Follow
-		</button>
-	</div>
-	<div class="skills">
-		<h6>Skills</h6>
-		<ul>
-			<li>Kubernetes</li>
-			<li>GCP/AWS/AZURE</li>
-			<li>Docker</li>
-			<li>Ansible</li>
-			<li>Jenkins</li>
-			<li>Git</li>
-			<li>GitHub</li>
-			<li>Linux RHCE</li>
-			<li>Terraform</li>
-		</ul>
-	</div>
-</div>
-
+<body class="bg-abcdbb flex items-center justify-center min-h-screen m-0">
+    <div class="card-container bg-231E39 rounded-lg shadow-lg text-B3B8CD p-8 relative w-full max-w-md mx-auto text-center">
+        <div class="bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 w-full h-5 absolute top-0 left-0 animate-wave duration-3000 ease-in-out infinite"></div>
+        <img class="round w-48 h-48 mx-auto mb-4 border-2 border-03BFCB rounded-full" src="https://github.com/psdike/maven-web/blob/master/psd.jpg?raw=true" alt="user" />
+        <h3 class="text-xl mb-2">Purushottam Dike</h3>
+        <h6 class="text-sm mb-2 uppercase">Reliable DevOps</h6>
+        <p class="text-sm mb-4">SRE @ N7<br/></p>
+        <div class="buttons mb-8">
+            <button class="primary bg-03BFCB border-2 border-03BFCB rounded-md text-231E39 font-semibold py-2 px-6 mr-2" onclick='window.location="https://www.linkedin.com/in/purushottam-dike/"'>
+                LinkedIn
+            </button>
+            <button class="primary ghost bg-transparent text-02899C border-2 border-03BFCB rounded-md font-semibold py-2 px-6" onclick='window.location="https://www.linkedin.com/in/purushottam-dike/"'>
+                Follow
+            </button>
+        </div>
+        <div class="skills bg-1F1A36 text-left p-4 rounded-md">
+            <h6 class="text-sm mb-2 uppercase">Skills</h6>
+            <ul class="flex flex-wrap list-none m-0 p-0">
+				<li class="bg-2D2747 text-xs rounded-md m-1 p-2">Kubernetes</li>
+                <li class="bg-2D2747 text-xs rounded-md m-1 p-2">GCP/AWS/AZURE</li>
+                <li class="bg-2D2747 text-xs rounded-md m-1 p-2">Docker</li>
+                <li class="bg-2D2747 text-xs rounded-md m-1 p-2">Ansible</li>
+                <li class="bg-2D2747 text-xs rounded-md m-1 p-2">Jenkins</li>
+                <li class="bg-2D2747 text-xs rounded-md m-1 p-2">Git</li>
+                <li class="bg-2D2747 text-xs rounded-md m-1 p-2">GitHub</li>
+                <li class="bg-2D2747 text-xs rounded-md m-1 p-2">Linux RHCE</li>
+                <li class="bg-2D2747 text-xs rounded-md m-1 p-2">Terraform</li>
+            </ul>
+        </div>
+		<div class="bg-gradient-to-r from-blue-500 via-green-500 to-purple-500 w-full h-5 absolute bottom-0 right-0 animate-wave duration-3000 ease-in-out infinite"></div>
+    </div>
+</body>
 </html>
