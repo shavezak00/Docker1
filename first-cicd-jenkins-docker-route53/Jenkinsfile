@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred')
+	}
     stages {
         stage('Clone repository') {
             steps {
@@ -20,6 +22,14 @@ pipeline {
             }
         }
 
+        stage('Login & Push Docker image') {
+            
+            steps {
+ 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+
+                sh 'docker push psdike/php:v${BUILD_NUMBER}'
+            }
+        }
         stage('Run Docker container') {
             steps {
                 sh 'docker rm -f $(docker ps -a -q)'
