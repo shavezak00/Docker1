@@ -32,7 +32,7 @@ environment {
         }
         stage('Run Docker container') {
             steps {
-                sh 'docker rm -f $(docker ps -a -q)'
+//                 sh 'docker rm -f $(docker ps -a -q)'
                 sh 'docker run -d -p 80:80 psdike/php:v${BUILD_NUMBER}'
             }
         }
