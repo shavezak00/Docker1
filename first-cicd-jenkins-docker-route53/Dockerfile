@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:7.4.0-fpm-alpine
 
 COPY cicd-projects/first-cicd-jenkins-docker-route53/index.php /var/www/html
 
