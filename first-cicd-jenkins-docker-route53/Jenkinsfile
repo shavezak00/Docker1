@@ -18,7 +18,7 @@ environment {
             
             steps {
                 sh 'ls -la'
-                sh 'docker build -t makmat/php:v${BUILD_NUMBER} -f Docker1/first-cicd-jenkins-docker-route53/Dockerfile .'
+                sh 'docker build -t shavezak00/php:v${BUILD_NUMBER} -f Docker1/first-cicd-jenkins-docker-route53/Dockerfile .'
             }
         }
 
@@ -47,7 +47,7 @@ else
     done
 fi
 		'''
-                sh 'docker run -d -p 80:80 makmat/php:v${BUILD_NUMBER}'
+                sh 'docker run -d -p 80:80 shavezak00/php:v${BUILD_NUMBER}'
             }
         }
 
